@@ -60,7 +60,44 @@ E.g. Vuejs
 ```
 
 ### Sass
-#### Style variables (colors, fonts, sizes, breakpoints): map-get
+#### Using colors, fonts, sizes and breakpoints.
+
+Design systems are unified concepts that ensure *consistency*.
+
+Front-end developers must make the effort of understanding those design systems and look for repetitive patterns **before** writing any line of code.
+
+##### map-get
+
+The best way to achieving consistency is having a **single source of truth**. In sass we have a utility called `map-get` that makes that really easy.
+
+E.g `variables.scss`
+```scss
+$colors: (
+	primary: blue;
+	secondary: lightblue;
+);
+
+$font: (
+	main-family: ('Inter UI', sans-serif),	
+	weight-thin: 300,
+	weight-medium: 500,
+	weight-fat: 700,
+	base-size: 62.5%,
+	smaller-size: 50%
+);
+
+$breakpoints: (
+	small: 500px, 
+	medium: 768px, 
+	large: 1024px, 
+	larger: 1280px, 
+	extra-large: 1440px
+);
+
+$sizes: (
+	nav-bar-height: 6rem
+);
+```
 
 ### Responsive design
 #### about pixel perfect  
