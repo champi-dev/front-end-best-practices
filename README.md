@@ -330,13 +330,25 @@ Not this
 
 ## JS
 ### Recommended reading
-#### Clean code (for js) https://github.com/ryanmcdermott/clean-code-javascript
 #### You don't know js https://github.com/getify/You-Dont-Know-JS
+This is a series of books that will show you the ins and outs of `javascript`. If you are serious about js development you must read all of those books.
+
+#### Clean code (for js) https://github.com/ryanmcdermott/clean-code-javascript
+Taken from Uncle Bob's original *Clean code* book I present to you the concepts/rules that will make your code more readable (for your future self or your colleagues).
 
 ### Tooling
-#### Linter: Eslint
-#### Formatter: Prettier/Standard
-#### Bundler: Webpack
+Modern Front-end development uses modern tools that make the development experience pretty smooth.
+Nowadays almost every font-end project will use a *linter*, *formatter/format-rules* and a *bundler*.
+
+The industry standards as of 2019 are:
+- Linter: Eslint
+- Formatter: Prettier (though I prefer Standard)
+- Bundler: Webpack
+
+If you're using the `vue-cli` you don't need to worry about configuring these, just make sure that you manually select these options when creating a project:
+- Babel
+- CSS Pre-processors --> Sass/SCSS (with node-sass)
+- Linter / Formatter --> ESLint + Standard config --> Lint and fix on commit
 
 ### Vue.js
 #### Style guide: https://vuejs.org/v2/style-guide/
