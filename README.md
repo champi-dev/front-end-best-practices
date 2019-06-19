@@ -101,6 +101,7 @@ $sizes: (
 
 ### Responsive design
 #### about pixel perfect  
+#### about media queries https://zellwk.com/blog/media-query-units/
 #### rem vs px
 #### when to use %
 
