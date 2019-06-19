@@ -208,7 +208,40 @@ span {
 }
 ```
 
-#### when to use %
+#### When to use %
+
+Percentage units come in handy when you need to set the dimensions of an element's child (width/height).
+More often that not you'll find yourself using `flexbox` everytime you're setting dimensions with percentages.
+
+E.g. `Navbar.vue`
+```html
+<template>
+  <nav class='navbar'>
+  	<a class='navbar__link' href="#pricing">Pricing</a>
+  	<a class='navbar__link' href="#ourwork">Ourwork</a>
+  	<a class='navbar__link' href="#about">About</a>
+  	<a class='navbar__link' href="#legal">Legal</a>
+  </nav>
+</template>
+
+<style lang="scss" scoped>
+// Whe may want to give the first 3 links more importance/space
+.navbar {
+	display: flex;
+
+	// Setting the width with percentage will keep the links space distribution as we
+	intended even when the screen width changes
+	&__link {
+		width: 30%;
+
+		&:last-child {
+			width: 10%;
+		}
+	}
+}
+</style>
+```
+
 #### about media queries https://zellwk.com/blog/media-query-units/
 
 
