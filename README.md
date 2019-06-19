@@ -242,8 +242,91 @@ E.g. `Navbar.vue`
 </style>
 ```
 
-#### about media queries https://zellwk.com/blog/media-query-units/
+#### Writing media queries 
+##### Use `em` in your media queries
+In this link https://zellwk.com/blog/media-query-units/ you'll see an experiment writing media queries using `px`, `rem` and `em`. The only unit that achieved consistency across browsers was the `em` unit. Give that link a quick read and then come back.
 
+##### Write as many media queries as you see fit
+We usually have 3 mayor breakpoints (mobile, tablet, desktop) but this *does not* mean that these are the only breakpoints you should use. Start with those mayor breakpoints but then resize the screen and watch for broken/unconsistent elements, I guarantee that you'll find many resolutions where the adjustments that you already have in place will look just *ugly*.
+
+Write your media queries inside rules, don't write a single media query for everything. This way you won't end up maintaning 2 code structures and you'll also be able to quickly understand how an element will change upon resolution changes.
+
+E.g.
+Code this
+```scss
+.container {
+	display: flex;
+
+	&__block {
+		width: 80%;
+		margin: 0 auto;
+		padding: 0 2.4rem;
+
+		@media screen and (max-width: 40em) {
+			width: 100%;
+			margin: unset;
+		}
+
+		@media screen and (max-width: 30em) {
+			padding: 0 1.6rem;
+		}
+
+		.block__text {
+			font-size: 1.6rem;
+
+			@media screen and (max-width: 40em) {
+				font-size: 1.4rem;
+			}
+
+			@media screen and (max-width: 30em) {
+				font-size: 1.2rem;
+			}
+		}
+	}
+}
+```
+
+Not this
+```scss
+.container {
+	display: flex;
+
+	&__block {
+		width: 80%;
+		margin: 0 auto;
+		padding: 0 2.4rem;
+
+		.block__text {
+			font-size: 1.6rem;
+		}
+	}
+}
+
+@media screen and (max-width: 40em) {
+	.container {
+		&__block {
+			width: 100%;
+			margin: unset;
+
+			.block__text {
+				font-size: 1.4rem;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 30em) {
+	.container {
+		&__block {
+			padding: 0 1.6rem;
+
+			.block__text {
+				font-size: 1.2rem;
+			}
+		}
+	}	
+}
+```
 
 ## JS
 ### Recommended reading
