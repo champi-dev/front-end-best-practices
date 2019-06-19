@@ -351,7 +351,9 @@ If you're using the `vue-cli` you don't need to worry about configuring these, j
 - Linter / Formatter --> ESLint + Standard config --> Lint and fix on commit
 
 ### Vue.js
-#### Style guide: https://vuejs.org/v2/style-guide/
+#### Style guide https://vuejs.org/v2/style-guide/
+Be sure to read the official Vuejs style guide. Following the advices given there will give consistency to the codebase and with the usage of a formatter (I recommend Standard) it'll look even more standardized.
+
 #### State management: Vuex
 #### Complex component state: Provide/Inject
 #### App architecture: Pages - Components - NetworkLayer
