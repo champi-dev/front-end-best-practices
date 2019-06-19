@@ -148,10 +148,22 @@ E.g `App.vue`
 Colors, fonts, sizes and breakpoints must be defined in `variables.scss` and used when needed. You should avoid using values (for colors, fonts, sizes and breakpoints) that are not already defined in `variables.scss`. If you need to create a new value (maybe the designer added a new color), add it to `variables.scss` and then use it with `map-get`.
 
 ### Responsive design
-#### about pixel perfect  
-#### about media queries https://zellwk.com/blog/media-query-units/
+#### About pixel perfect  
+
+Designers and developers share the goal of bringing a product to life, yet they use different tools for achieving it.
+
+When a designer hands off a mockup he/she expects that the developer takes care of converting that mockup to a live web version. Often times what he/she forgets is that *the web* is a dynamic platform that changes it's width/height according to the user's device and therefore the design *must adapt* to this reality.
+
+##### A practical view on pixel perfect web design
+
+Mobile, tablet and desktop. Those are the most common screen resolutions that a website is designed for.
+- Developers should strive to get as close to the mockups in those resolutions as possible and make sure that it still looks good in uncommon resolutions (resize the browser both horizontally and vertically, everything should look consistent and in place).
+- Designers should help developers fix those situations when an uncommon resolution brakes the design.
+
+
 #### rem vs px
 #### when to use %
+#### about media queries https://zellwk.com/blog/media-query-units/
 
 
 ## JS
