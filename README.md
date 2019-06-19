@@ -161,7 +161,53 @@ Mobile, tablet and desktop. Those are the most common screen resolutions that a 
 - Designers should help developers fix those situations when an uncommon resolution brakes the design.
 
 
-#### rem vs px
+#### Stop using `px`, use `rem` instead
+
+`px` is a fixed unit of measurement. Does *fixed* sound responsive to you?
+No? Why are you still using it?
+
+`rem` is a relative unit of measument, it means that its value directly depens on a relative (root) value (commonly set with a `font-size` targeting the `html` tag). If that root value changes, the value expressed in `rem` will change uniformly.
+
+It's a good practice to set the html's `font-size` to `10px`. This way it'll be easier to write your css thinking in `px` (as you're used to) but using `rem` for everything else.
+
+E.g. 
+```css
+html {
+	font-size: 10px;
+}
+
+button {
+	font-size: 1rem; // equals 10px
+}
+
+span {
+	font-size: 1.6rem; // equals 16px
+	width: 20rem; // equals 200px
+	height: 14rem; // equals 140px
+}
+```
+
+##### What's the benefit?
+
+If we now change html's `font-size` to `8px`, everything that was setted with `rem` will now reevaluate to a `20%` less and therefore will look *smaller*.
+
+E.g. 
+```css
+html {
+	font-size: 8px;
+}
+
+button {
+	font-size: 1rem; // now equals 8px
+}
+
+span {
+	font-size: 1.6rem; // now equals 12.8px
+	width: 20rem; // now equals 160px
+	height: 14rem; // now equals 112px
+}
+```
+
 #### when to use %
 #### about media queries https://zellwk.com/blog/media-query-units/
 
