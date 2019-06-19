@@ -73,12 +73,12 @@ The best way to achieving consistency is having a **single source of truth**. In
 E.g `variables.scss`
 ```scss
 $colors: (
-	primary: blue;
-	secondary: lightblue;
+	blue: #4286f4;
+	lightblue: #b8d1f9;
 );
 
 $font: (
-	main-family: ('Inter UI', sans-serif),	
+	main-family: sans-serif,	
 	weight-thin: 300,
 	weight-medium: 500,
 	weight-fat: 700,
@@ -95,9 +95,57 @@ $breakpoints: (
 );
 
 $sizes: (
-	nav-bar-height: 6rem
+	header-height: 6rem
 );
 ```
+
+E.g `App.vue`
+```html
+<template>
+  <div class='app'>
+    <div class='app__header'>
+    	<span class='header__text'>Hello World</span>
+    </div>
+  </div>
+</template>
+
+// use the scoped atrr in components
+<style lang="scss">
+  @import "./variables";
+
+  html {
+  	font-size: map-get($font, base-size);
+    font-family: map-get($font, main-family);
+    font-weight: map-get($font, weight-thin);
+    box-sizing: border-box;
+
+    @media screen and (max-width: map-get($breakpoints, small)) {
+    	font-size: map-get($font, smaller-size);
+    }
+  }
+
+  .app {
+  	display: flex;
+  	flex-direction: column;
+  	background: map-get($colors, blue);
+
+  	&__header {
+  		width: 100%;
+  		height: map-get($sizes, header-height);
+  		background: transparent;
+  		display: flex;
+  		justify-content: center;
+  		align-items: center;
+
+  		.header__text {
+  			color: map-get($colors, lightblue);
+  		}
+  	}
+  }
+</style>
+```
+
+Colors, fonts, sizes and breakpoints must be defined in `variables.scss` and used when needed. You should avoid using values (for colors, fonts, sizes and breakpoints) that are not already defined in `variables.scss`. If you need to create a new value (maybe the designer added a new color), add it to `variables.scss` and then use it with `map-get`.
 
 ### Responsive design
 #### about pixel perfect  
