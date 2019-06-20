@@ -520,7 +520,24 @@ const store = new Vuex.Store({
 export default store
 ```
 
-#### Complex component state: Provide/Inject
+#### Complex component state
+There are cases where handling state with props or bus events can quickly become cumbersome. I'm talking about components that are complex by design/nature and therefore require careful thought in it's construction.
+
+In case you're still not following let me ask you this question:
+Have you ever written a component that passes down many props to a middle component that also passes down those props? *(this is known as prop drilling)*
+
+If you answered *yes* keep reading, *otherwise* you may not need the pattern I'm about to describe.
+
+##### Provide/Inject
+https://vuejs.org/v2/api/#provide-inject This feature is similar to React's Context. It lets you define data in a parent component and make it available to all of its children *no matter how deep the component hierarchy is* without needing to manually pass it down.
+
+With this feature available in our toolbelt we can now replicate a *state management pattern* for our complex component (consequently gaining clarity over data flow).
+
+Let's build a login form with two inputs (email and password) and a submit button.
+- Each input should have it's on validation
+- If an input is invalid it should apply an *error style* and also display and *error message*
+- If the form is invalid the submit button should be *disabled*
+
 #### App architecture: Pages - Components - NetworkLayer
 
 
