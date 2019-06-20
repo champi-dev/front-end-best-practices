@@ -490,7 +490,7 @@ export default {
 
   getters: {
   	totalPayment(state) {
-  		return state.reduce((a, b) => a.price + b.price)
+  		return state.productsInBasket.reduce((a, b) => a.price + b.price)
   	}
   }
 }
