@@ -533,10 +533,12 @@ https://vuejs.org/v2/api/#provide-inject This feature is similar to React's Cont
 
 With this feature available in our toolbelt we can now replicate a *state management pattern* for our complex component (consequently gaining clarity over data flow).
 
-Let's build a login form with two inputs (email and password) and a submit button.
+Let's build a **signup** form with two inputs (email and password) and a submit button.
 - Each input should have it's on validation
 - If an input is invalid it should apply an *error style* and also display and *error message*
 - If the form is invalid the submit button should be *disabled*
+
+[Go to live demo](https://codesandbox.io/s/provide-inject-72mne)
 
 #### App architecture: Pages - Components - NetworkLayer
 
