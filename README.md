@@ -44,10 +44,10 @@ What if the above submit button also needed a `disabled` class that changes the 
 
 E.g. Vuejs
 ```html
-	<button :class=`
-		button 
-		${disableBtn ? 'button--disabled' : ''}
-	`>
+	<button :class="{
+		'button': true,
+		'button--disabled': disabled
+	}">
 		<span class='button__text'>Submit<span>
 		<img class='button__icon' src='icon.svg' alt='' />
 	</button>
