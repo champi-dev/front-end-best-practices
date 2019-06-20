@@ -540,6 +540,36 @@ Let's build a **signup** form with two inputs (email and password) and a submit 
 
 [Go to live demo](https://codesandbox.io/s/provide-inject-72mne)
 
-#### App architecture: Pages - Components - NetworkLayer
+#### App architecture
+A key aspect of writing maintable apps is to conceptualize it as many layers, each one with it's one responsability, and together they form the bulk of the app.
 
+Some people have referred to this as **separation of concerns** but the term hasn't been clarified enough to prevent developers into thinking that having separate files for the `html` - `css` - `js` is separating concerns. Nope, that's not it, that's just separation of files.
 
+**separation of concerns** is about defining responsability.
+
+##### pages - components - networkLayer
+I've came up with this pattern of having the following folders in my projects:
+
+- pages: Here are the files that are responsible for rendering an entire page to the screen (it may be also called views). These ones make calls to the store.
+
+- components: Here are the files that represent a unit to be used inside a Page.
+
+- networkLayer:
+	This is the layer that connects to the *backend* and manages the data flow.
+	![networkLayer](https://i.ibb.co/YWxLT2M/Screen-Shot-2019-06-20-at-2-04-13-AM.png)	
+
+	- apiCalls: Here are all the apiCalls that can be made by the app. These ones are called within a store module action. These return either `[res]` or `[null, error]`. The idea here is to separate the concepts of **making a server request** and **managing the requested data**.
+	
+	- store: Here is the state management setup to be used. A config file and a `modules/` folder containing the store modules.	
+
+E.g `GETproducts.js` (an api call)
+```javascript
+import axios from 'axios'
+export const GETproducts = () =>
+  axios
+    .get(
+      '/products/'
+    )
+    .then((res) => [ res.data ])
+    .catch((error) => [ null, error ])
+```
